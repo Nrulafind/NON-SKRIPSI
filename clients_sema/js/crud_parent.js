@@ -78,11 +78,10 @@ document.getElementById('addparentForm').addEventListener('submit', function (ev
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({
-            nisn: nisn,
+            id: id,
             nama: nama,
             alamat: alamat,
-            kelas: kelas,
-            attendance_id: attendance_id
+            student_id: student_id,
         })
     })
         .then(response => response.json())

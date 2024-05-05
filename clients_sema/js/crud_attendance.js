@@ -43,8 +43,7 @@ async function fetchattendanceData() {
                     <td>${attendance.date_attendance_in}</td>
                     <td>${attendance.date_attendance_out}</td>
                     <td>${attendance.behaviour}</td>
-                    <td>${attendance.kelas}</td>
-                    <td>${attendance.attendance_id}</td>
+                    <td>${attendance.id}</td>
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#editattendanceModal" onclick="editattendance(${attendance.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteattendance(${attendance.id})">delete</button></td>
                 `;

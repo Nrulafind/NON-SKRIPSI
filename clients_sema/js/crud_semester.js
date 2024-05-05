@@ -43,9 +43,12 @@ async function fetchsemesterData() {
                 row.innerHTML = `
                     <td>${semester.id}</td>
                     <td>${semester.nama_semester}</td>
-                    <td>${semester.grade}</td>
+                    <td>${semester.mid_grade}</td>
+                    <td>${semester.end_grade}</td>
                     <td>${semester.prediction}</td>
-                    <td>${semester.attendance_id}</td>
+                    <td>${semester.date}</td>
+                    <td>${semester.student_id}</td>
+                    <td>${semester.teacher_id}</td>
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#editsemesterModal" onclick="editsemester(${semester.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deletesemester(${semester.id})">delete</button></td>
                 `;

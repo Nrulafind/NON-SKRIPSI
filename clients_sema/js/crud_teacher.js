@@ -40,11 +40,11 @@ async function fetchteacherData() {
             responseData.data.forEach(function (teacher) {
                 var row = document.createElement('tr');
                 row.innerHTML = `
+                <td>${teacher.id}</td>
                     <td>${teacher.nik}</td>
                     <td>${teacher.nama}</td>
                     <td>${teacher.alamat}</td>
-                    <td>${teacher.status}</td>
-                    <td>${teacher.attendance_id}</td>
+                    <td>${JSON.stringify(teacher.status)}</td>
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#editteacherModal" onclick="editteacher(${teacher.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteteacher(${teacher.id})">delete</button></td>
                 `;

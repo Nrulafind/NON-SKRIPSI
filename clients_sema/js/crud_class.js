@@ -43,8 +43,6 @@ async function fetchclass_Data() {
                     <td>${class_.id}</td>
                     <td>${class_.nama_kelas}</td>
                     <td>${class_.wali_kelas}</td>
-                    <td>${class_.kelas}</td>
-                    <td>${class_.attendance_id}</td>
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#editclass_Modal" onclick="editclass_(${class_.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteclass_(${class_.id})">delete</button></td>
                 `;
