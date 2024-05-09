@@ -66,11 +66,13 @@ async function fetchsemesterData() {
 // Function to add a new semester
 document.getElementById('addsemesterForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var nisn = document.getElementById('addNisn').value;
-    var nama = document.getElementById('addNama').value;
-    var alamat = document.getElementById('addAlamat').value;
-    var kelas = document.getElementById('addKelas').value;
-    var attendance_id = document.getElementById('addAttendance_id').value;
+    var nama_semester = document.getElementById('addSemester').value;
+    var mid_grade = document.getElementById('addMid_grade').value;
+    var end_grade = document.getElementById('addEnd_grade').value;
+    var prediction = document.getElementById('addPrediction').value;
+    var date = document.getElementById('addDate').value;
+    var student_id = document.getElementById('addStudent_id').value;
+    var teacher_id = document.getElementById('addTeacher_id').value;
 
     // Fetch access token from local storage
     var token = getAccessToken();
@@ -82,11 +84,13 @@ document.getElementById('addsemesterForm').addEventListener('submit', function (
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({
-            nisn: nisn,
-            nama: nama,
-            alamat: alamat,
-            kelas: kelas,
-            attendance_id: attendance_id
+            nama_semester: nama_semester,
+            mid_grade: mid_grade,
+            end_grade: end_grade,
+            prediction: prediction,
+            date: date,
+            student_id: student_id,
+            teacher_id: teacher_id
         })
     })
         .then(response => response.json())
@@ -126,11 +130,13 @@ function editsemester(semesterId) {
         })
         .then(semester => {
             // Populate modal fields with semester data
-            document.getElementById('editNisn').value = semester.nisn;
-            document.getElementById('editNama').value = semester.nama;
-            document.getElementById('editAlamat').value = semester.alamat;
-            document.getElementById('editKelas').value = semester.kelas;
-            document.getElementById('editAttendance_id').value = semester.attendance_id;
+            document.getElementById('editSemester').value = semester.nama_semester;
+            document.getElementById('editMid_grade').value = semester.mid_grade;
+            document.getElementById('editEnd_grade').value = semester.end_grade;
+            document.getElementById('editPrediction').value = semester.prediction;
+            document.getElementById('editDate').value = semester.date;
+            document.getElementById('editStudent_id').value = semester.student_id;
+            document.getElementById('editTeacher_id').value = semester.teacher_id;
 
             // Show the edit modal
             var editModal = new bootstrap.Modal(document.getElementById('editsemesterModal'));
@@ -140,19 +146,23 @@ function editsemester(semesterId) {
             document.getElementById('editsemesterForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                var newNisn = document.getElementById('editNisn').value;
-                var newName = document.getElementById('editNama').value;
-                var newAlamat = document.getElementById('editAlamat').value;
-                var newKelas = document.getElementById('editKelas').value;
-                var newAttendance = document.getElementById('editAttendance_id').value;
+                var newSemester = document.getElementById('editSemester').value;
+                var newMid_grade = document.getElementById('editMid_grade').value;
+                var newEnd_grade = document.getElementById('editEnd_grade').value;
+                var newPrediction = document.getElementById('editPrediction').value;
+                var newDate = document.getElementById('editDate').value;
+                var newStudent_id = document.getElementById('editStudent_id').value;
+                var newTeacher_id = document.getElementById('editTeacher_id').value;
 
                 // Prepare request data
                 var requestData = {
-                    nisn: newNisn,
-                    nama: newName,
-                    alamat: newAlamat,
-                    kelas: newKelas,
-                    attendance_id: newAttendance
+                    nama_semester: newSemester,
+                    mid_grade: newMid_grade,
+                    end_grade: newEnd_grade,
+                    prediction: newPrediction,
+                    date: newDate,
+                    student_id: newStudent_id,
+                    teacher_id: newTeacher_id
                 };
 
                 // Determine HTTP method based on whether semesterId exists

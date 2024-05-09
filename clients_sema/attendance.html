@@ -436,20 +436,17 @@
                             <div class="modal-body">
                                 <form id="addattendanceForm">
                                     <div class="mb-3">
-                                        <label for="nisn" class="form-label">NISN</label>
-                                        <input type="text" class="form-control" id="addNisn" required>
+                                        <label for="date_attendance_in" class="form-label">Date Attendance In</label>
+                                        <input type="datetime" class="form-control" id="addDate_attendance_in" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="addNama" required>
+                                        <label for="date_attendance_out" class="form-label">Date Attendance Out</label>
+                                        <input type="datetime" class="form-control" id="addDate_attendance_out"
+                                            required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="alamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="addAlamat" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="kelas" class="form-label">Kelas</label>
-                                        <input type="text" class="form-control" id="addKelas" required>
+                                        <label for="behaviour" class="form-label">Behaviour</label>
+                                        <input type="text" class="form-control" id="addBehaviour" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="attendance_id" class="form-label">Attendance ID</label>
@@ -463,7 +460,7 @@
                 </div>
 
                 <!-- Modal Edit attendance -->
-                <div class="modal fade" id="editattendanceModal" tabindex="-1"
+                <div class="modal fade" id="editAttendanceModal" tabindex="-1"
                     aria-labelledby="editattendanceModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -475,23 +472,21 @@
                             <div class="modal-body">
                                 <form id="editattendanceForm">
                                     <div class="mb-3">
-                                        <label for="editNisn" class="form-label">NISN</label>
-                                        <input type="text" class="form-control" id="editNisn" required>
+                                        <label for="date_attendance_in" class="form-label">Date Attendance In</label>
+                                        <input type="datetime" class="form-control" id="editDate_attendance_in"
+                                            required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editNama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="editNama" required>
+                                        <label for="date_attendance_out" class="form-label">Date Attendance Out</label>
+                                        <input type="datetime" class="form-control" id="editDate_attendance_out"
+                                            required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editAlamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="editAlamat" required>
+                                        <label for="behaviour" class="form-label">Behaviour</label>
+                                        <input type="text" class="form-control" id="editBehaviour" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editKelas" class="form-label">Kelas</label>
-                                        <input type="text" class="form-control" id="editKelas" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="editAttendance_id" class="form-label">Attendance ID</label>
+                                        <label for="attendance_id" class="form-label">Attendance ID</label>
                                         <input type="text" class="form-control" id="editAttendance_id" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update attendance</button>

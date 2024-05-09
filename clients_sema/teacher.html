@@ -438,8 +438,8 @@
                             <div class="modal-body">
                                 <form id="addteacherForm">
                                     <div class="mb-3">
-                                        <label for="nisn" class="form-label">NISN</label>
-                                        <input type="text" class="form-control" id="addNisn" required>
+                                        <label for="nik" class="form-label">NIK</label>
+                                        <input type="text" class="form-control" id="addNik" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama</label>
@@ -450,12 +450,10 @@
                                         <input type="text" class="form-control" id="addAlamat" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="kelas" class="form-label">Kelas</label>
-                                        <input type="text" class="form-control" id="addKelas" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="attendance_id" class="form-label">Attendance ID</label>
-                                        <input type="text" class="form-control" id="addAttendance_id" required>
+                                        <select name="editStatus" id="editStatus" required>
+                                            <option value="0">non-active</option>
+                                            <option value="1">active</option>
+                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Add teacher</button>
                                 </form>
@@ -477,8 +475,8 @@
                             <div class="modal-body">
                                 <form id="editteacherForm">
                                     <div class="mb-3">
-                                        <label for="editNisn" class="form-label">NISN</label>
-                                        <input type="text" class="form-control" id="editNisn" required>
+                                        <label for="editNik" class="form-label">NIK</label>
+                                        <input type="text" class="form-control" id="editNik" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="editNama" class="form-label">Nama</label>
@@ -489,12 +487,10 @@
                                         <input type="text" class="form-control" id="editAlamat" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editKelas" class="form-label">Kelas</label>
-                                        <input type="text" class="form-control" id="editKelas" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="editAttendance_id" class="form-label">Attendance ID</label>
-                                        <input type="text" class="form-control" id="editAttendance_id" required>
+                                        <select name="editStatus" id="editStatus" required>
+                                            <option value="0">non-active</option>
+                                            <option value="1">active</option>
+                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update teacher</button>
                                 </form>

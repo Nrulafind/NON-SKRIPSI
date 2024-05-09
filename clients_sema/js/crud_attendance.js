@@ -44,7 +44,7 @@ async function fetchattendanceData() {
                     <td>${attendance.date_attendance_out}</td>
                     <td>${attendance.behaviour}</td>
                     <td>${attendance.id}</td>
-                    <td><button class="btn btn-warning" data-toggle="modal" data-target="#editattendanceModal" onclick="editattendance(${attendance.id})">Edit</button>
+                    <td><button class="btn btn-warning" data-toggle="modal" data-target="#editAttendanceModal" onclick="editAttendance(${attendance.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteattendance(${attendance.id})">delete</button></td>
                 `;
                 document.getElementById('attendanceList').appendChild(row);
@@ -61,10 +61,9 @@ async function fetchattendanceData() {
 // Function to add a new attendance
 document.getElementById('addattendanceForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var date_attendance_in = document.getElementById('adddate_attendance_in').value;
-    var date_attendance_out = document.getElementById('adddate_attendance_out').value;
-    var behaviour = document.getElementById('addbehaviour').value;
-    var kelas = document.getElementById('addKelas').value;
+    var date_attendance_in = document.getElementById('addDate_attendance_in').value;
+    var date_attendance_out = document.getElementById('addDate_attendance_out').value;
+    var behaviour = document.getElementById('addBehaviour').value;
     var attendance_id = document.getElementById('addAttendance_id').value;
 
     // Fetch access token from local storage
@@ -80,7 +79,6 @@ document.getElementById('addattendanceForm').addEventListener('submit', function
             date_attendance_in: date_attendance_in,
             date_attendance_out: date_attendance_out,
             behaviour: behaviour,
-            kelas: kelas,
             attendance_id: attendance_id
         })
     })
@@ -100,7 +98,7 @@ document.getElementById('addattendanceForm').addEventListener('submit', function
 });
 
 // Function to edit a attendance
-function editattendance(attendanceId) {
+function editAttendance(attendanceId) {
     // Fetch access token from local storage
     const token = getAccessToken();
 
@@ -120,11 +118,10 @@ function editattendance(attendanceId) {
         })
         .then(attendance => {
             // Populate modal fields with attendance data
-            document.getElementById('editdate_attendance_in').value = attendance.date_attendance_in;
-            document.getElementById('editdate_attendance_out').value = attendance.date_attendance_out;
-            document.getElementById('editbehaviour').value = attendance.behaviour;
-            document.getElementById('editKelas').value = attendance.kelas;
-            document.getElementById('editAttendance_id').value = attendance.attendance_id;
+            document.getElementById('editDate_attendance_in').value = attendance.date_attendance_in;
+            document.getElementById('editDate_attendance_out').value = attendance.date_attendance_out;
+            document.getElementById('editBehaviour').value = attendance.behaviour;
+            document.getElementById('editAttendance_id').value = attendance.id;
 
             // Show the edit modal
             var editModal = new bootstrap.Modal(document.getElementById('editattendanceModal'));
@@ -137,7 +134,6 @@ function editattendance(attendanceId) {
                 var newdate_attendance_in = document.getElementById('editdate_attendance_in').value;
                 var newName = document.getElementById('editdate_attendance_out').value;
                 var newbehaviour = document.getElementById('editbehaviour').value;
-                var newKelas = document.getElementById('editKelas').value;
                 var newAttendance = document.getElementById('editAttendance_id').value;
 
                 // Prepare request data
@@ -145,8 +141,7 @@ function editattendance(attendanceId) {
                     date_attendance_in: newdate_attendance_in,
                     date_attendance_out: newName,
                     behaviour: newbehaviour,
-                    kelas: newKelas,
-                    attendance_id: newAttendance
+                    id: newAttendance
                 };
 
                 // Determine HTTP method based on whether attendanceId exists

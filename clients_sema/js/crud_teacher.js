@@ -62,11 +62,10 @@ async function fetchteacherData() {
 // Function to add a new teacher
 document.getElementById('addteacherForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var nisn = document.getElementById('addNisn').value;
+    var nik = document.getElementById('addNik').value;
     var nama = document.getElementById('addNama').value;
     var alamat = document.getElementById('addAlamat').value;
-    var kelas = document.getElementById('addKelas').value;
-    var attendance_id = document.getElementById('addAttendance_id').value;
+    var status = document.getElementById('addStatus').value;
 
     // Fetch access token from local storage
     var token = getAccessToken();
@@ -78,11 +77,10 @@ document.getElementById('addteacherForm').addEventListener('submit', function (e
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({
-            nisn: nisn,
+            nik: nik,
             nama: nama,
             alamat: alamat,
-            kelas: kelas,
-            attendance_id: attendance_id
+            status: status,
         })
     })
         .then(response => response.json())
@@ -122,11 +120,11 @@ function editteacher(teacherId) {
         })
         .then(teacher => {
             // Populate modal fields with teacher data
-            document.getElementById('editNisn').value = teacher.nisn;
+            document.getElementById('editNik').value = teacher.nik;
             document.getElementById('editNama').value = teacher.nama;
             document.getElementById('editAlamat').value = teacher.alamat;
-            document.getElementById('editKelas').value = teacher.kelas;
-            document.getElementById('editAttendance_id').value = teacher.attendance_id;
+            document.getElementById('editStatus').value = teacher.status;
+
 
             // Show the edit modal
             var editModal = new bootstrap.Modal(document.getElementById('editteacherModal'));
@@ -136,19 +134,18 @@ function editteacher(teacherId) {
             document.getElementById('editteacherForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                var newNisn = document.getElementById('editNisn').value;
+                var newNik = document.getElementById('editNik').value;
                 var newName = document.getElementById('editNama').value;
                 var newAlamat = document.getElementById('editAlamat').value;
-                var newKelas = document.getElementById('editKelas').value;
-                var newAttendance = document.getElementById('editAttendance_id').value;
+                var newStatus = document.getElementById('editStatus').value;
+
 
                 // Prepare request data
                 var requestData = {
-                    nisn: newNisn,
+                    nik: newNik,
                     nama: newName,
                     alamat: newAlamat,
-                    kelas: newKelas,
-                    attendance_id: newAttendance
+                    status: newStatus,
                 };
 
                 // Determine HTTP method based on whether teacherId exists

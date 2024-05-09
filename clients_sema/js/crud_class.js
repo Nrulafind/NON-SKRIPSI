@@ -60,11 +60,8 @@ async function fetchclass_Data() {
 // Function to add a new class_
 document.getElementById('addclass_Form').addEventListener('submit', function (event) {
     event.preventDefault();
-    var nisn = document.getElementById('addNisn').value;
-    var nama = document.getElementById('addNama').value;
-    var alamat = document.getElementById('addAlamat').value;
-    var kelas = document.getElementById('addKelas').value;
-    var attendance_id = document.getElementById('addAttendance_id').value;
+    var nama_kelas = document.getElementById('addNama_kelas').value;
+    var wali_kelas = document.getElementById('addWali_kelas').value;
 
     // Fetch access token from local storage
     var token = getAccessToken();
@@ -76,11 +73,8 @@ document.getElementById('addclass_Form').addEventListener('submit', function (ev
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({
-            nisn: nisn,
-            nama: nama,
-            alamat: alamat,
-            kelas: kelas,
-            attendance_id: attendance_id
+            nama_kelas: nama_kelas,
+            wali_kelas: wali_kelas
         })
     })
         .then(response => response.json())
@@ -120,11 +114,8 @@ function editclass_(class_Id) {
         })
         .then(class_ => {
             // Populate modal fields with class_ data
-            document.getElementById('editNisn').value = class_.nisn;
-            document.getElementById('editNama').value = class_.nama;
-            document.getElementById('editAlamat').value = class_.alamat;
-            document.getElementById('editKelas').value = class_.kelas;
-            document.getElementById('editAttendance_id').value = class_.attendance_id;
+            document.getElementById('editNama_kelas').value = class_.nama_kelas;
+            document.getElementById('editWali_kelas').value = class_.wali_kelas;
 
             // Show the edit modal
             var editModal = new bootstrap.Modal(document.getElementById('editclass_Modal'));
@@ -134,19 +125,13 @@ function editclass_(class_Id) {
             document.getElementById('editclass_Form').addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                var newNisn = document.getElementById('editNisn').value;
-                var newName = document.getElementById('editNama').value;
-                var newAlamat = document.getElementById('editAlamat').value;
-                var newKelas = document.getElementById('editKelas').value;
-                var newAttendance = document.getElementById('editAttendance_id').value;
+                var newName_class = document.getElementById('editNama_kelas').value;
+                var newWali_class = document.getElementById('editWali_kelas').value;
 
                 // Prepare request data
                 var requestData = {
-                    nisn: newNisn,
-                    nama: newName,
-                    alamat: newAlamat,
-                    kelas: newKelas,
-                    attendance_id: newAttendance
+                    nama_kelas: newName_class,
+                    wali_kelas: newWali_class,
                 };
 
                 // Determine HTTP method based on whether class_Id exists

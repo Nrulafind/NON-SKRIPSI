@@ -64,11 +64,11 @@ async function fetchuserData() {
 // Function to add a new user
 document.getElementById('adduserForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var nisn = document.getElementById('addNisn').value;
-    var nama = document.getElementById('addNama').value;
-    var alamat = document.getElementById('addAlamat').value;
-    var kelas = document.getElementById('addKelas').value;
-    var attendance_id = document.getElementById('addAttendance_id').value;
+    var email = document.getElementById('addEmail').value;
+    var user_name = document.getElementById('addUser_name').value;
+    var password = document.getElementById('addPassword').value;
+    var role = document.getElementById('addRole').value;
+    var status = document.getElementById('addStatus').value;
 
     // Fetch access token from local storage
     var token = getAccessToken();
@@ -80,11 +80,11 @@ document.getElementById('adduserForm').addEventListener('submit', function (even
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({
-            nisn: nisn,
-            nama: nama,
-            alamat: alamat,
-            kelas: kelas,
-            attendance_id: attendance_id
+            email: email,
+            user_name: user_name,
+            password: password,
+            role: role,
+            status: status
         })
     })
         .then(response => response.json())
@@ -124,11 +124,11 @@ function edituser(userId) {
         })
         .then(user => {
             // Populate modal fields with user data
-            document.getElementById('editNisn').value = user.nisn;
-            document.getElementById('editNama').value = user.nama;
-            document.getElementById('editAlamat').value = user.alamat;
-            document.getElementById('editKelas').value = user.kelas;
-            document.getElementById('editAttendance_id').value = user.attendance_id;
+            document.getElementById('editEmail').value = user.email;
+            document.getElementById('editUser_name').value = user.user_name;
+            document.getElementById('editPassword').value = user.password;
+            document.getElementById('editRole').value = user.role;
+            document.getElementById('editStatus').value = user.status
 
             // Show the edit modal
             var editModal = new bootstrap.Modal(document.getElementById('edituserModal'));
@@ -138,19 +138,19 @@ function edituser(userId) {
             document.getElementById('edituserForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                var newNisn = document.getElementById('editNisn').value;
-                var newName = document.getElementById('editNama').value;
-                var newAlamat = document.getElementById('editAlamat').value;
-                var newKelas = document.getElementById('editKelas').value;
-                var newAttendance = document.getElementById('editAttendance_id').value;
+                var newEmail = document.getElementById('editEmail').value;
+                var newUser_name = document.getElementById('editUser_name').value;
+                var newPassword = document.getElementById('editPassword').value;
+                var newRole = document.getElementById('editRole').value;
+                var newStatus = document.getElementById('editStatus').value;
 
                 // Prepare request data
                 var requestData = {
-                    nisn: newNisn,
-                    nama: newName,
-                    alamat: newAlamat,
-                    kelas: newKelas,
-                    attendance_id: newAttendance
+                    email: newEmail,
+                    user_name: newUser_name,
+                    password: newPassword,
+                    role: newRole,
+                    status: newStatus
                 };
 
                 // Determine HTTP method based on whether userId exists

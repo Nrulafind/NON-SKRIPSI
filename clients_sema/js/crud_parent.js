@@ -43,7 +43,6 @@ async function fetchparentData() {
                     <td>${parent.id}</td>
                     <td>${parent.nama}</td>
                     <td>${parent.alamat}</td>
-                    <td>${parent.kelas}</td>
                     <td>${parent.student_id}</td>
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#editparentModal" onclick="editparent(${parent.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteparent(${parent.id})">delete</button></td>
@@ -62,11 +61,9 @@ async function fetchparentData() {
 // Function to add a new parent
 document.getElementById('addparentForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    var nisn = document.getElementById('addNisn').value;
     var nama = document.getElementById('addNama').value;
     var alamat = document.getElementById('addAlamat').value;
-    var kelas = document.getElementById('addKelas').value;
-    var attendance_id = document.getElementById('addAttendance_id').value;
+    var student_id = document.getElementById('addStudent_id').value;
 
     // Fetch access token from local storage
     var token = getAccessToken();
@@ -121,11 +118,9 @@ function editparent(parentId) {
         })
         .then(parent => {
             // Populate modal fields with parent data
-            document.getElementById('editNisn').value = parent.nisn;
             document.getElementById('editNama').value = parent.nama;
             document.getElementById('editAlamat').value = parent.alamat;
-            document.getElementById('editKelas').value = parent.kelas;
-            document.getElementById('editAttendance_id').value = parent.attendance_id;
+            document.getElementById('editStudent_id').value = parent.student_id;
 
             // Show the edit modal
             var editModal = new bootstrap.Modal(document.getElementById('editparentModal'));
@@ -135,19 +130,15 @@ function editparent(parentId) {
             document.getElementById('editparentForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                var newNisn = document.getElementById('editNisn').value;
                 var newName = document.getElementById('editNama').value;
                 var newAlamat = document.getElementById('editAlamat').value;
-                var newKelas = document.getElementById('editKelas').value;
-                var newAttendance = document.getElementById('editAttendance_id').value;
+                var newStudent_id = document.getElementById('editStudent_id').value;
 
                 // Prepare request data
                 var requestData = {
-                    nisn: newNisn,
                     nama: newName,
                     alamat: newAlamat,
-                    kelas: newKelas,
-                    attendance_id: newAttendance
+                    student_id: newStudent_id
                 };
 
                 // Determine HTTP method based on whether parentId exists
