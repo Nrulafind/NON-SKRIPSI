@@ -1,21 +1,7 @@
 //const apiUrl = 'http://localhost:8090/api';
 
-// Function to get the access token from local storage
-function getAccessToken() {
-    return localStorage.getItem('access_token');
-}
-
-function getLoginStatus() {
-    return localStorage.getItem('logged_in');
-}
-
-const token = getAccessToken();
-const stat = getLoginStatus();
-
-if (!token && !stat) {
-    console.error('JWT token is missing');
-    window.location.href = 'login.html';
-}
+// const token = getAccessToken();
+// const stat = getLoginStatus();
 
 // Function to fetch student data from the API
 async function fetchStudentData() {

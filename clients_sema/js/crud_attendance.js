@@ -1,13 +1,17 @@
-//const apiUrl = 'http://localhost:8090/api';
+// const apiUrl = 'http://localhost:8090/api';
 
-// Function to get the access token from local storage
-function getAccessToken() {
-    return localStorage.getItem('access_token');
-}
+// // Function to get the access token from local storage
+// function getAccessToken() {
+//     return localStorage.getItem('access_token');
+// }
 
-function getLoginStatus() {
-    return localStorage.getItem('logged_in');
-}
+// function getLoginStatus() {
+//     return localStorage.getItem('logged_in');
+// }
+
+// import { getAccessToken, getLoginStatus, cekLoginStatus, apiUrl } from './auth'
+
+// cekLoginStatus();
 
 // Function to fetch attendance data from the API
 async function fetchattendanceData() {
@@ -98,7 +102,7 @@ document.getElementById('addattendanceForm').addEventListener('submit', function
 });
 
 // Function to edit a attendance
-function editAttendance(attendanceId) {
+async function editAttendance(attendanceId) {
     // Fetch access token from local storage
     const token = getAccessToken();
 

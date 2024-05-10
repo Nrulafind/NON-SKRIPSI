@@ -1,13 +1,15 @@
 //const apiUrl = 'http://localhost:8090/api';
 
 // Function to get the access token from local storage
-function getAccessToken() {
-    return localStorage.getItem('access_token');
-}
+// function getAccessToken() {
+//     return localStorage.getItem('access_token');
+// }
 
-function getLoginStatus() {
-    return localStorage.getItem('logged_in');
-}
+// function getLoginStatus() {
+//     return localStorage.getItem('logged_in');
+// }
+
+//import './auth'
 
 // Function to fetch user data from the API
 async function fetchuserData() {

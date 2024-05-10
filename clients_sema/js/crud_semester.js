@@ -1,13 +1,15 @@
 //const apiUrl = 'http://localhost:8090/api';
 
 // Function to get the access token from local storage
-function getAccessToken() {
-    return localStorage.getItem('access_token');
-}
+// function getAccessToken() {
+//     return localStorage.getItem('access_token');
+// }
 
-function getLoginStatus() {
-    return localStorage.getItem('logged_in');
-}
+// function getLoginStatus() {
+//     return localStorage.getItem('logged_in');
+// }
+
+//import './auth'
 
 // Function to fetch semester data from the API
 async function fetchsemesterData() {
@@ -50,8 +52,8 @@ async function fetchsemesterData() {
                     <td>${semester.student_id}</td>
                     <td>${semester.teacher_id}</td>
                     <td><button class="btn btn-warning" data-toggle="modal" data-target="#editsemesterModal" onclick="editsemester(${semester.id})">Edit</button>
-                    <button class="btn btn-danger" onclick="deletesemester(${semester.id})">delete</button></td>
-                `;
+                <button button button class="btn btn-danger" onclick = "deletesemester(${semester.id})" > delete</button ></td >
+                    `;
                 document.getElementById('semesterList').appendChild(row);
             });
         } else {
@@ -77,7 +79,7 @@ document.getElementById('addsemesterForm').addEventListener('submit', function (
     // Fetch access token from local storage
     var token = getAccessToken();
 
-    fetch(`${apiUrl}/semester`, {
+    fetch(`${apiUrl} /semester`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
