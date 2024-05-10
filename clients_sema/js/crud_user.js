@@ -15,14 +15,7 @@
 async function fetchuserData() {
     try {
 
-        const token = getAccessToken();
-        const stat = getLoginStatus();
-
-        if (!token && !stat) {
-            console.error('JWT token is missing');
-            window.location.href = 'login.html';
-            return;
-        }
+        cekLoginStatus();
 
         const response = await fetch(`${apiUrl}/user`, {
             method: 'GET',

@@ -16,15 +16,7 @@
 // Function to fetch attendance data from the API
 async function fetchattendanceData() {
     try {
-        const token = getAccessToken();
-        const stat = getLoginStatus();
-
-        if (!token && !stat) {
-            console.error('JWT token is missing');
-            window.location.href = 'login.html';
-            return;
-        }
-
+        cekLoginStatus();
         const response = await fetch(`${apiUrl}/attendance`, {
             method: 'GET',
             headers: {

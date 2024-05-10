@@ -1,7 +1,6 @@
 
 const apiUrl = 'http://localhost:8090/api';
 
-
 // Function to get the access token from local storage
 function getAccessToken() {
     return localStorage.getItem('access_token');
@@ -10,6 +9,8 @@ function getAccessToken() {
 function getLoginStatus() {
     return localStorage.getItem('logged_in');
 }
+
+const token = getAccessToken();
 
 function cekLoginStatus() {
     var token = getAccessToken();
@@ -21,6 +22,7 @@ function cekLoginStatus() {
     }
 }
 
+//window.location.reload(cekLoginStatus());
 
 function logout() {
     localStorage.removeItem('logged_in');

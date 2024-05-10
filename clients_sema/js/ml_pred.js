@@ -255,7 +255,7 @@
 
 // // On page load, fetch student data
 // window.onload = fetchStudentData;
-
+cekLoginStatus();
 document.addEventListener('DOMContentLoaded', () => {
     // const apiUrl = 'http://localhost:8090/api';
     const ml_Form = document.getElementById('addml_partForm');
