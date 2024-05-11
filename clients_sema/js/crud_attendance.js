@@ -120,7 +120,7 @@ async function editAttendance(attendanceId) {
             document.getElementById('editAttendance_id').value = attendance.id;
 
             // Show the edit modal
-            var editModal = new bootstrap.Modal(document.getElementById('editattendanceModal'));
+            var editModal = new bootstrap.Modal(document.getElementById('editAttendanceModal'));
             editModal.show();
 
             // Add event listener for the edit form submission
